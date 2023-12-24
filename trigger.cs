@@ -1,8 +1,14 @@
 using Sandbox;
 
-public sealed class Trigger : Component, Component.ITriggerListener
+public sealed class trigger : Component, Component.ITriggerListener
 {
 
+void changeScene() //change scene void to load the newScene defined above
+	{
+		Log.Info("aaa");
+		GameManager.ActiveScene.Load(newScene);
+	}	
+[Property] public SceneFile newScene { get; set; }
  bool _iTouching; 
   
     protected override void OnStart()
@@ -22,7 +28,7 @@ public sealed class Trigger : Component, Component.ITriggerListener
     {
         _iTouching = false;
         Log.Info("Out");
-		GameManager.ActiveScene.LoadFromFile("scenes/platformer.scene");
+		GameManager.ActiveScene.Load(newScene);
 
         
     }
