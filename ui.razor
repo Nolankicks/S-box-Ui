@@ -1,10 +1,10 @@
 @using Sandbox;
 @using Sandbox.UI;
-@inherits PanelComponent
+3@inherits PanelComponent
 
 
 <root>
-	<div class="text">O&ly Up</div>
+	<div class="text">@menuText</div>
 	<button @onclick=@changeScene>Start New Game</button>
 	<button @onclick=@levelSelector>Level Select</button>
 </root>
@@ -14,7 +14,7 @@
 
 @code
 {
-
+	[Property] public string menuText { get; set; }
 	[Property] public SceneFile newScene { get; set; } //allows the scene to be change in the editor
 
 	
@@ -24,7 +24,7 @@
 		GameManager.ActiveScene.Load(newScene);
 	}	
 
-	protected override int BuildHash() => System.HashCode.Combine( changeScene ); //does some hash shit idk
+	protected override int BuildHash() => System.HashCode.Combine( changeScene, menuText ); //does some hash shit idk
 
 
 	void levelSelector()
