@@ -1,14 +1,8 @@
 using Sandbox;
 
-public sealed class trigger : Component, Component.ITriggerListener
+public sealed class Trigger : Component, Component.ITriggerListener
 {
 
-void changeScene() //change scene void to load the newScene defined above
-	{
-		Log.Info("aaa");
-		GameManager.ActiveScene.Load(newScene);
-	}	
-[Property] public SceneFile newScene { get; set; }
  bool _iTouching; 
   
     protected override void OnStart()
@@ -28,9 +22,9 @@ void changeScene() //change scene void to load the newScene defined above
     {
         _iTouching = false;
         Log.Info("Out");
-		GameManager.ActiveScene.Load(newScene);
+		GameManager.ActiveScene.Load(scene);
 
         
     }
-
+	[Property] public SceneFile scene { get; set; }
 }
