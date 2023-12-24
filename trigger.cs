@@ -1,6 +1,6 @@
 using Sandbox;
 
-public sealed class Trigger : Component, Component.ITriggerListener
+public sealed class Trigger : Component, Component.ITriggerListener //Change "Trigger to the name of your file
 {
 
  bool _iTouching; 
