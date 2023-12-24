@@ -4,7 +4,9 @@
 
 
 <root>
-	<button @onclick=@changeScene>Play Platformer</button>
+	<div class="text">O&ly Up</div>
+	<button @onclick=@changeScene>Start New Game</button>
+	<button @onclick=@levelSelector>Level Select</button>
 </root>
 
 
@@ -23,5 +25,21 @@
 	}	
 
 	protected override int BuildHash() => System.HashCode.Combine( changeScene ); //does some hash shit idk
+
+
+	void levelSelector()
+	{
+		Log.Info("Level Selector Selected");
+		GameManager.ActiveScene.LoadFromFile("scenes/levelselctor.scene");
+	}
+
+
+	
+
+
+
+
+
+	
 	
 }
