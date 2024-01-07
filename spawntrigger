@@ -1,27 +1,37 @@
 using System.Runtime.CompilerServices;
 using Sandbox;
 
-public sealed class spawntrigger : Component, Component.ITriggerListener //Change "Trigger to the name of your file
+
+
+public sealed class SpawnTrigger : Component, Component.ITriggerListener //Change "Trigger to the name of your file
 {
 
- bool _iTouching; 
-  
-    protected override void OnStart()
-    {
-      _iTouching = false;
-    }
+ int iTouching; 
 
+
+
+	
+
+    
     void ITriggerListener.OnTriggerEnter( Collider other ) 
     {
-        _iTouching = true;
-        Log.Info("In");
+        iTouching++;
+
+	
+			        Log.Info("In");
        SceneUtility.Instantiate(prefabScene, vector, rotation );
-        
+		
+		
+		
+
+
+
+
     }
 
     void ITriggerListener.OnTriggerExit( Collider other ) 
     {
-        _iTouching = false;
+        iTouching--;
         Log.Info("Out");
 		
 	
@@ -29,6 +39,8 @@ public sealed class spawntrigger : Component, Component.ITriggerListener //Chang
     
 
     }
+
+	
 	[Property] public PrefabScene prefabScene {get; set;}
 	//public Vector3( float x, float y, float z );
 	[Property] Vector3 vector { get; set; }
