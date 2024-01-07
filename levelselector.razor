@@ -8,6 +8,9 @@
 	</div>
 	<button @onclick=@buttonOne>Level 1</button>
 	<button @onclick=@buttonTwo>Level 2</button>
+	<button @onclick=@buttonThree>Level 3</button>
+	<button @onclick=@buttonFour>Level 4</button>
+	<button @onclick=@sandBox>Sandbox Mode</button>
 	<button @onclick=@backToMenu>Return to menu</button>
 </root>
 
@@ -21,28 +24,76 @@
 	[Property] public SceneFile sceneOne { get; set; }
 	[Property] public SceneFile sceneTwo { get; set; }
 	[Property] public SceneFile sceneThree { get; set; }
+	[Property] public SceneFile sceneFour { get; set; }
+	[Property] public SceneFile sceneSandbox { get; set; }
 	[Property] public SceneFile menuScene { get; set; }
+	[Property] public SoundEvent buttonClickSound { get; set; }
+    [Property] public bool playbuttonSound {get; set;}
+
+
+	
 	void buttonOne() //change scene void to load the newScene defined above
 	{
 		Log.Info("aaa");
 		GameManager.ActiveScene.Load(sceneOne);
 	}	
 
-	protected override int BuildHash() => System.HashCode.Combine( sceneOne, sceneTwo, sceneThree, menuScene ); //does some hash shit idk
+
+
+	
 
 
 	void buttonTwo()
 	{
 		Log.Info("Level Selector Selected");
+		 if (playbuttonSound==true)
+       
+        {
+ Sound.Play(buttonClickSound);
+        }
 		GameManager.ActiveScene.Load(sceneTwo);
+		
+		
+	}
+		void buttonThree()
+	{
+		 if (playbuttonSound==true)
+       
+        {
+ Sound.Play(buttonClickSound);
+        }
+		GameManager.ActiveScene.Load(sceneThree);
+	}
+	void buttonFour()
+	{
+		 if (playbuttonSound==true)
+       
+        {
+ Sound.Play(buttonClickSound);
+        }
+		GameManager.ActiveScene.Load(sceneFour);
+	}
+	void sandBox()
+	{
+		 if (playbuttonSound==true)
+       
+        {
+ Sound.Play(buttonClickSound);
+        }
+		GameManager.ActiveScene.Load(sceneSandbox);
+		Log.Info("button three");
 	}
 
 	void backToMenu()
 	{
-		Log.Info("Back To Menu");
+		 if (playbuttonSound==true)
+       
+        {
+ Sound.Play(buttonClickSound);
+        }
 		GameManager.ActiveScene.Load(menuScene);
 	}
-
+protected override int BuildHash() => System.HashCode.Combine( sceneOne, sceneTwo, sceneSandbox, menuScene, sceneThree, sceneFour, buttonClickSound, playbuttonSound ); //does some hash shit idk
 
 	
 
