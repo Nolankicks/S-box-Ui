@@ -4,21 +4,29 @@
 
 <root>
     <div class="text">@menuTitle</div>
-	<div class="credits">@creditsText</div>
+
 	<div class="bytext">@byText</div>
     <button @onclick=@changeScene>Start New Game</button>
     <button @onclick=@changeScene2>Level Selector</button>
+	<exitbutton @onclick=@Close>Exit</exitbutton>
+	<creditbutton @onclick=@creditsChange>Credits</creditbutton>
+
 </root>
 
 @code
 {
     [Property] public SceneFile startGame { get; set; }
     [Property] public SceneFile levelSelector { get; set; }
-    [Property] public string menuTitle { get; set; } = "";
+	  [Property] public SceneFile creditsScene {get; set;}
+   
     [Property] public SoundEvent buttonClickSound { get; set; }
     [Property] public bool playSound {get; set;}
-	[Property] public string creditsText {get; set;} = "";
+	 [Property] public string menuTitle { get; set; } = "";
+
+	
 	[Property] public string byText {get; set;} = "";
+
+    
 
     
 	
@@ -36,6 +44,7 @@
         
         GameManager.ActiveScene.Load(startGame);
         
+        
     }
 
     void changeScene2()
@@ -48,6 +57,17 @@
         }
         GameManager.ActiveScene.Load(levelSelector);
     }
+	void creditsChange()
+	{
+		GameManager.ActiveScene.Load(creditsScene);
+	}
 
-    protected override int BuildHash() => System.HashCode.Combine(startGame, levelSelector, byText, buttonClickSound, playSound);
+
+static void Close()
+{
+	Game.Close();
+}
+	
+
+    protected override int BuildHash() => System.HashCode.Combine(startGame, levelSelector, byText, buttonClickSound, playSound, creditsScene, menuTitle);
 }
