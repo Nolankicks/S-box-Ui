@@ -6,6 +6,17 @@ mainmenu
 		font-weight: bold;
 	  }
 
+	  .credits {
+		position: absolute; 
+		right: 20;
+		bottom: 20;
+		pointer-events: all;
+		flex-direction: row;
+		padding: 25px;
+		color: #ccc;
+		font-family: Poppins;
+		font-size: 50px;
+	  }
 
 
 
@@ -35,6 +46,17 @@ mainmenu
     color: #ccc;
     font-family: Poppins;
     font-size: 100px;}
+
+	.bytext
+	{		position: absolute; 
+		left: 20;
+		bottom: 20;
+		pointer-events: all;
+		flex-direction: row;
+		padding: 25px;
+		color: #ccc;
+		font-family: Poppins;
+		font-size: 50px;}
 	
 	
 	button {
@@ -68,6 +90,79 @@ mainmenu
 		  color: #e41d1d;
 		}
 	  }
-	  
-	  }
+	  exitbutton {
+		padding: 5px 10px;
+		color: #aaa;
+		background-color: #161414;
+		margin: 5px;
+		cursor: pointer;
+		opacity: 1;
+		border-radius: 7px;
+		max-width: 300px;
+		flex-grow: 1;
+		display: flex;
 
+		justify-content: center;
+		position: absolute; 
+		left: 2850;
+		bottom: 0;
+
+		flex-direction: row;
+
+	  
+		.title {
+		  font-size: 15px;
+		  font-family: 'Poppins', sans-serif;
+		  font-weight: bold;
+		}
+	  
+		&:hover {
+		  opacity: 1;
+		  background-color: #3555d2;
+		  color: #fff;
+		}
+	  
+		&:active {
+		  background-color: #fff;
+		  color: #e41d1d;
+		}
+	  }
+	  creditbutton {
+		padding: 5px 10px;
+		color: #aaa;
+		background-color: #161414;
+		margin: 5px;
+		cursor: pointer;
+		opacity: 1;
+		border-radius: 7px;
+		max-width: 300px;
+		flex-grow: 1;
+		display: flex;
+
+		justify-content: center;
+		position: absolute; 
+		left: 2725;
+		bottom: 0;
+
+		flex-direction: row;
+	  
+		.title {
+			font-size: 15px;
+			font-family: 'Poppins', sans-serif;
+			font-weight: bold;
+		  }
+		
+		  &:hover {
+			opacity: 1;
+			background-color: #3555d2;
+			color: #fff;
+		  }
+		
+		  &:active {
+			background-color: #fff;
+			color: #e41d1d;
+		  }
+	  }
+	  
+
+	}
