@@ -1,0 +1,60 @@
+leveltwomenu
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	border-radius: 20px;
+	pointer-events: all;
+	
+	.text
+	{position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: all;
+    flex-direction: row;
+    padding: 60px;
+    color: #ccc;
+    font-family: Poppins;
+    font-size: 100px;}
+
+	button
+	{
+		padding: 5px 10px;
+    color: #aaa;
+    background-color: #444;
+    margin: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    border-radius: 7px;
+    flex-direction: column;
+    max-width: 300px;
+    flex-grow: 1;
+	
+		.title
+		{
+			font-size: 5px;
+			font-family: Poppins;
+			font-weight: bold;
+		}
+	
+		&:hover
+		{
+			opacity: 1;
+			background-color: #3555d2;
+			color: #fff;
+		}
+	
+		&:active
+		{
+			background-color: #fff;
+			color: #e41d1d;
+		}
+	}
+	  }
